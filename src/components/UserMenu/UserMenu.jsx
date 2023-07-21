@@ -1,28 +1,25 @@
 import { useDispatch } from 'react-redux';
-import { userSignOut } from 'redux/auth/operations';
-import { useIsLoggedIn, useUser } from 'hooks';
-import { UserName, LogOutButton, UserMenuWrapper } from './UserMenu.styled';
+import { logOut } from '../../redux/auth/operations';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
+import scss from "./UserMenu.module.scss";
 
-function UserMenu() {
-  const isLoggedIn = useIsLoggedIn();
-  const user = useUser();
+export const UserMenu = () => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
-  const handleLogout = () => {
-    dispatch(userSignOut());
-  };
   return (
-    <>
-      {isLoggedIn && (
-        <UserMenuWrapper>  
-          <UserName>{user.name}</UserName>
-          <LogOutButton type="button" onClick={handleLogout}>
-            Log out
-          </LogOutButton>
-        </UserMenuWrapper>
-      )}
-    </>
-  );
-}
+    <div className={scss.nfo}>
+      <p className={scss.user}>
+        Welcome, {user.name}
+      </p>
 
-export default UserMenu;
+      <button className={scss.LogOut}
+        onClick={() => dispatch(logOut())}
+      >
+        {' '}
+        Logout
+      </button>
+    </div>
+  );
+};

@@ -1,0 +1,52 @@
+.container {
+    padding-top: 0px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputField {
+    margin-bottom: 10px;
+    border: none;
+    outline: solid 2px;
+    border-radius: 5px;
+    outline-color: transparent;
+    font-size: 1em;
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    transition: outline-color 300ms;
+    &:focus {
+        outline-color: lightgreen;
+    }
+  }
+  .auth {
+    width: 130px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+    &:hover {
+        background-color: #2EE59D;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+    }

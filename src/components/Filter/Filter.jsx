@@ -1,22 +1,17 @@
-import { useDispatch} from 'react-redux';
-import { setFilter } from 'redux/filter/slice';
-import { useFilterValue } from 'hooks';
-import { StyledLabel, StyledInput } from './Filter.styled';
+import { useSelector, useDispatch } from 'react-redux';
 
-function Filter() {
+import { filterContacts } from '../../redux/contacts/contactsSlice';
+import { getFilter } from 'redux/contacts/selectors';
+import scss from '../LoginForm/LoginForm.module.scss'
+export const Filter = () => {
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-  const filterValue = useFilterValue();
-  return (
-    <StyledLabel>
-      Find contacts by name
-      <StyledInput
-        name="filter"
-        type="text"
-        onChange={event => dispatch(setFilter(event.currentTarget.value))}
-        value={filterValue}
-      />
-    </StyledLabel>
-  );
-}
 
-export default Filter;
+  function filterName(event) {
+    dispatch(filterContacts(event.currentTarget.value));
+  }
+
+  return (
+    <input className={scss.inputField} type="text" placeholder='find contact' value={filter} onChange={filterName} />
+  );
+};

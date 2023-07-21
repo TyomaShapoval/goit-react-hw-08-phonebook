@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import phonebook from '../../images/addressbook.jpg';
-import { Container, WelcomeMessage, Image } from './Home.styled';
+import scss from "./Home.module.scss";
 
 function Home() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <Container>
+    <section className={scss.container}>
       {isLoggedIn ? (
-        <WelcomeMessage>Save your contacts with pleasure!</WelcomeMessage>
+        <p className={scss.homeText}>Save your contacts with pleasure!</p>
       ) : (
-        <WelcomeMessage>To get started, please log in!</WelcomeMessage>
+        <p className={scss.homeText}>To get started, please log in!</p>
       )}
-      <Image src={phonebook} alt="phonebook"/>
-    </Container>
+      <img className={scss.book} src={phonebook} alt="phonebook"/>
+    </section>
   );
 }
 

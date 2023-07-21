@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+.homeText {
+  font-size: 18px;
+  font-weight: 700;
+  color: #B0C3CC;
+}
+.book {
+    width: 430px;
+}

@@ -1,15 +1,41 @@
-import { useIsLoggedIn } from 'hooks';
-import { StyledNavigation, NavigationLink } from './Navigation.styled';
+import { useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import scss from "./Navigation.module.scss"
 
-function Navigation() {
-  const isLoggedIn = useIsLoggedIn();
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
+const StyledLink = styled(NavLink)`
+  color: #D2D9DC;
+
+  &.active {
+    color: #545E2E;
+    &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #545E2E;
+        top: 100%;
+        left: -3%;
+    }
+  }
+`;
+
+export const Navigation = () => {
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <StyledNavigation>
-      <NavigationLink to="/">Home</NavigationLink>
-      {isLoggedIn && <NavigationLink to="/contacts">Contacts</NavigationLink>}
-    </StyledNavigation>
+    <nav>
+      <StyledLink to="/" className={scss.navLink}>
+          Home
+      </StyledLink>
+      {isLoggedIn && (
+        <StyledLink to="/contacts" className={scss.navLink}>
+            Contacts
+        </StyledLink>
+      )}
+    </nav>
   );
-}
-
-export default Navigation;
+};

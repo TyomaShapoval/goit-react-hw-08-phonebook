@@ -1,0 +1,16 @@
+.header {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: static;
+    background-color: #B0C3CC;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.title {
+    color: rgb(210, 217, 220);
+    font-size: 40px;
+    font-weight: 700;
+}

@@ -1,0 +1,28 @@
+.navLink {
+    text-decoration: none;
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+    text-transform: uppercase;
+	letter-spacing: .3em;
+	font-size: 25px;
+    font-weight: 600;
+    position: relative;
+    transition: color 300ms;
+    &::before {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 2px;
+        background-color: #545E2E;
+        top: 100%;
+        left: -3%;
+        transition: width 300ms;
+    }
+    &:hover {
+        color: #545E2E;
+        &::before{
+            width: 100%;
+        }
+    }
+}
