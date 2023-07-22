@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
-import phonebook from '../../images/addressbook.jpg';
+import phonebook from '../../images/addressbook.png';
 import scss from "./Home.module.scss";
 
 function Home() {
